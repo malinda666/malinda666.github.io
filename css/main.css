@@ -45,15 +45,24 @@
     font-family: 'made';
     src: url('../fonts/MADE\ Soulmaze\ PERSONAL\ USE.otf');
 }
+body.loading{
+    opacity : 0;
+}
+body{
+    opacity: 1;
+    transition : opacity 1000ms;
+}
 html,body{
     box-sizing: border-box;
     background-color: #cccccc;
     color : #333;
     overflow:hidden;
+    height: 100%;
+    
 }
 h1{
     font-family: made-italic;
-    font-size: 160px;
+    font-size: 1160px;
     position: absolute;
     top:-1000%;
     left:-1000%;
@@ -64,25 +73,26 @@ h1{
     position: fixed;
     top: 0;
     left: 0;
-    pointer-events: none;
+    pointer-events: all;
     z-index: 0;
 }
 .scroll-content{
     z-index: 1;
-    padding-top: 200vh;
+}
+.work,
+.about{
+    position : relative;
 }
 .work{
     height: 120vh;
+    width:100%;
     background-color: transparent;
 }
 .work-list {
     top: 20vh;
-    left: 0vh;
     min-height: 60vh;
-    padding: 0 6.25vw 50vh;
+    padding: 10vh 7vw;
     position: relative;
-    width: 100%;
-    
 }
 .work-list ul{
     list-style-type: none;
@@ -94,30 +104,37 @@ h1{
 }
 
 .work-list ul li .item-title{
-    font-family: florance-black;
+    font-family: league;
     font-size:6vw;
     font-weight: 900;
     line-height: 1.25;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #222;
+    color : #222;
+    -webkit-text-stroke : 1px transparent;
+    transition: all 600ms;
+    opacity : 0.8
 }
 .work-list ul li .item-subtitle{
     position: absolute;
     display: inline-block;
-    left: calc(2vh);
-    top: 1vw;
+    left: calc(5vh);
+    top: 3vw;
     opacity: 1;
     overflow: hidden;
 }
 .work-list ul li .item-subtitle div{
-    font-family: league;
-    font-size: 1vw;
+    font-family: dolce;
+    font-size: 1.2vw;
     font-weight: 900;
     color: #222;
     
     text-transform: uppercase;
     transform: translateY(100%);
     transition: transform 600ms;
+}
+.item:hover .item-title{
+    opacity : 0.4;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #222;
 }
 .item:hover .item-subtitle>div{
     transform: translateY(0)
@@ -129,55 +146,53 @@ h1{
 .about-outro{
     height: 100vh;
 }
-.about{
-    display: grid;
-    grid-template-columns: 5% 1fr 1fr 5%; 
-    font-family: florance-bold;
-    color: #222;
+.about{ 
+    font-family: league;
 }
 .about-intro{
-    grid-column: 3;
+    margin : 0;
 }
 .about-intro-wrap{
     position: relative;
     top:0;
     left:0;
-    margin: 5% 0%;
+    margin: 0;
+    margin: 0 6.25vw;
 }
 .about-intro-wrap p{
     font-size: 5vh;
-    font-weight: 800;
+    font-weight: 500;
     line-height: 6vh;
     margin-top : 4vh;
+    color: #222;
 }
 .about-outro{
-    grid-column: 3;
-   
+    margin : 0 5vh;
 }
 .about-outro-wrap{
     position: relative;
     top:0;
     left:0;
     height: 100%;
+    color: #222;
 }
 .about-outro-wrap .email{
     font-size: 4vw;
     position: absolute;
-    left: -30%;
+    left: 0;
     top: 40%;
     font-weight: 400;
 }
 .about-outro-wrap .social{
     font-size: 2vw;
     position: absolute;
-    right:0;
-    top: 60%;
+    top:calc(40% + 2vh);
+    right: 0;
     font-weight: 400;
 }
 .about-outro-wrap .footer{
     position: absolute;
-    left:0;
-    top: 90%;
+    bottom : 5vh;
     font-size: 13px;
     font-weight: 400;
     font-family: monsterrat;
